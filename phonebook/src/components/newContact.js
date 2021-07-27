@@ -1,6 +1,5 @@
 import React from 'react'
-
-import axios from 'axios'
+import phonebook from '../services/phonebook'
 
 const NewContact = ({state}) => {
 
@@ -16,7 +15,7 @@ const NewContact = ({state}) => {
         if(nameExists){
           alert(`${state.newName} already exists in the phonebook`)
         }else{
-          axios.post('http://localhost:3001/persons', {name: state.newName, number: state.newNum})
+          phonebook.saveContact({name: state.newName, number: state.newNum})
           .then(response => state.setPersons([...state.persons, response]))
           .catch(() => alert('contact not added'))
         }

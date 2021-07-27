@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import phonebook from './services/phonebook'
 import FilterSearch from './components/filterSeacrch'
 import NewContact from './components/newContact'
 import ContactList from './components/contactList'
@@ -13,11 +13,11 @@ const App = () => {
   const stateObj = {persons, setPersons, newName, setNewName, newNum, setNewNum, searchResults, setSearchResults}
 
   useEffect(() => {
-    axios.get('http://localhost:3001/persons')
-         .then(response => {
-           //console.log(response.data)
-           setPersons(response.data)
-         })
+    phonebook.getContacts()
+      .then(contacts => {
+        //console.log(response.data)
+          setPersons(contacts)
+      })
   }, [])
 
   
