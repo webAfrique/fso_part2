@@ -15,9 +15,10 @@ const App = () => {
   useEffect(() => {
     axios.get('http://localhost:3001/persons')
          .then(response => {
-           console.log(response.data)
+           //console.log(response.data)
+           setPersons(response.data)
          })
-  })
+  }, [])
 
   
   return (
