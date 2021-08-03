@@ -11,4 +11,9 @@ const saveContact = (params) => {
     return request.then(response => response.data)
 }
 
-export default {getContacts, saveContact}
+const deleteContact = (id) => {
+  const request = axios.delete(`${baseUrl}/${id}`)
+  return request.then(response => response.data)
+}
+
+export default {getContacts, saveContact, deleteContact}

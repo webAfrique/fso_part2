@@ -18,7 +18,7 @@ const App = () => {
         //console.log(response.data)
           setPersons(contacts)
       })
-  }, [])
+  }, [searchResults])//learn about the second argument to useEffect, persons causes rerenders; will searchResults be better?
 
   
   return (
@@ -28,7 +28,7 @@ const App = () => {
       <h3>Add new contact</h3>
       <NewContact state={stateObj}/>
       <h2>Numbers</h2>
-      <ContactList contacts={searchResults}/>
+      <ContactList state={stateObj}/>
     </div>
   )
 }
