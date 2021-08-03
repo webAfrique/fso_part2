@@ -18,7 +18,7 @@ const App = () => {
         //console.log(response.data)
           setPersons(contacts)
       })
-  }, [searchResults])//learn about the second argument to useEffect, persons causes rerenders; will searchResults be better?
+  }, [searchResults])
 
   
   return (
