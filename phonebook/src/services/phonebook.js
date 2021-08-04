@@ -11,9 +11,14 @@ const saveContact = (params) => {
     return request.then(response => response.data)
 }
 
+const updateContact = (id, params) => {
+  const request = axios.patch(`${baseUrl}/${id}`, params)
+  return request.then(response => response.data)
+}
+
 const deleteContact = (id) => {
   const request = axios.delete(`${baseUrl}/${id}`)
   return request.then(response => response.data)
 }
 
-export default {getContacts, saveContact, deleteContact}
+export default {getContacts, saveContact, updateContact, deleteContact}
